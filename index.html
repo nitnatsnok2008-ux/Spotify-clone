@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify</title>
+  <meta name="description" content="Spotify Web Player Clone" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%231ed760'/%3E%3Cpath d='M17 16.5c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.4.1-.7-.1-.8-.5-.1-.4.1-.7.5-.8 4-1 7.5-.5 10.3 1.2.3.2.4.6.2.9zm1.3-3c-.2.4-.7.5-1.1.3-2.8-1.7-7.1-2.2-10.4-1.2-.4.1-.9-.1-1-.6-.1-.4.1-.9.6-1 3.8-1.1 8.5-.6 11.7 1.4.4.2.5.7.2 1.1zm.1-3.1C15 5.4 8.9 5.2 5.4 6.3c-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3C8.8 3 15.5 3.2 19.5 5.6c.5.3.7.9.4 1.4-.3.5-.9.7-1.4.4z' fill='%23000'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <svg viewBox="0 0 1134 340" class="logo" aria-label="Spotify">
+          <path fill="currentColor" d="M8 171c0 92 76 168 168 168s168-76 168-168S268 4 176 4 8 79 8 171zm230 78c-39-24-89-30-147-17-14 2-16-18-4-20 64-15 118-8 162 19 11 7 0 24-11 18zm17-45c-45-28-114-36-167-20-17 5-23-21-7-25 61-18 136-9 188 23 14 9 0 31-14 22zM80 133c-17 6-28-23-9-30 59-18 159-15 221 22 17 9 1 37-17 27-54-32-144-35-195-19zm379 91c-17 0-33-6-47-20l16-19c12 10 23 16 32 16 11 0 18-4 18-12 0-7-9-10-23-15-24-7-44-15-44-39 0-22 18-37 45-37 17 0 35 6 50 17l-15 20c-13-9-26-14-36-14-9 0-15 4-15 10 0 8 9 10 25 15 24 8 42 17 42 39 0 24-18 39-48 39zm213-101h32v98h-32v-12c-9 9-21 15-37 15-30 0-55-23-55-58s25-58 55-58c16 0 28 6 37 15v-12zm0 49c0-17-13-30-30-30s-30 13-30 30 13 31 30 31 30-14 30-31zm98-50c30 0 56 23 56 58s-26 58-56 58c-16 0-28-6-37-15v12h-32V79h32v59c9-9 21-15 37-15zm-7 86c17 0 30-14 30-31s-13-30-30-30-30 13-30 30 13 31 30 31zm126 15c-33 0-59-25-59-58s26-58 59-58 59 25 59 58-26 58-59 58zm0-89c-18 0-30 14-30 31s12 31 30 31 30-14 30-31-12-31-30-31zm127-30c11 0 20 2 28 7l-12 24c-5-3-10-4-16-4-15 0-25 13-25 36v51h-32V124h32v13c7-9 17-15 25-15zm65 113h-32V124h32v98zm-16-110c-11 0-19-8-19-18s8-18 19-18 19 8 19 18-8 18-19 18z"></path>
+        </svg>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#/home" class="nav-item" data-route="home">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"/></svg>
+          <span>Startseite</span>
+        </a>
+        <a href="#/search" class="nav-item" data-route="search">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"/></svg>
+          <span>Suchen</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-library">
+        <div class="library-header">
+          <button class="library-title" id="open-library">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M14.5 2.134a1 1 0 0 1 1 0l6 3.464a1 1 0 0 1 .5.866V21a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V3a1 1 0 0 1 .5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zm6 0a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1z"/></svg>
+            <span>Deine Bibliothek</span>
+          </button>
+          <button class="library-add" id="create-playlist-btn" title="Playlist erstellen">
+            <svg viewBox="0 0 16 16"><path fill="currentColor" d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"/></svg>
+          </button>
+        </div>
+
+        <div class="library-filters" id="library-filters">
+          <button class="filter-chip active" data-filter="all">Alle</button>
+          <button class="filter-chip" data-filter="playlist">Playlists</button>
+          <button class="filter-chip" data-filter="artist">Künstler:innen</button>
+          <button class="filter-chip" data-filter="album">Alben</button>
+        </div>
+
+        <div class="library-list" id="library-list"></div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-nav">
+          <button class="nav-btn" id="nav-back" title="Zurück">
+            <svg viewBox="0 0 16 16"><path fill="currentColor" d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"/></svg>
+          </button>
+          <button class="nav-btn" id="nav-forward" title="Vor">
+            <svg viewBox="0 0 16 16"><path fill="currentColor" d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"/></svg>
+          </button>
+        </div>
+        <div class="topbar-search" id="topbar-search">
+          <svg viewBox="0 0 24 24" class="search-icon"><path fill="currentColor" d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28z"/></svg>
+          <input type="text" id="search-input" placeholder="Was möchtest du hören?" />
+        </div>
+        <div class="topbar-actions">
+          <button class="install-btn">Jetzt holen</button>
+          <div class="user-avatar" title="Profil">N</div>
+        </div>
+      </header>
+
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+
+  <!-- Now Playing Bar -->
+  <footer class="player" id="player">
+    <div class="player-left">
+      <div class="np-cover cover" id="np-cover"></div>
+      <div class="np-info">
+        <div class="np-title" id="np-title">—</div>
+        <div class="np-artist" id="np-artist"></div>
+      </div>
+      <button class="np-like" id="np-like" title="Zu Lieblingssongs hinzufügen">
+        <svg viewBox="0 0 16 16"><path fill="currentColor" d="M1.69 2A4.582 4.582 0 0 1 8 2.023 4.583 4.583 0 0 1 11.88.817h.002a4.618 4.618 0 0 1 3.78 3.815v.013a4.617 4.617 0 0 1-1.345 4.063l-.014.013-6.778 6.022a.78.78 0 0 1-1.04-.001L3.5 13.6 1.398 11.7l-.014-.013A4.617 4.617 0 0 1 .04 7.65v-.013A4.618 4.618 0 0 1 1.69 2zm6.31.81.6.79.6-.79.001-.002a3.082 3.082 0 1 1 4.79 3.864l-6.18 5.49-6.18-5.49a3.082 3.082 0 1 1 4.79-3.864L8 2.81z"/></svg>
+      </button>
+    </div>
+
+    <div class="player-center">
+      <div class="player-controls">
+        <button class="ctrl-btn" id="btn-shuffle" title="Zufallswiedergabe">
+          <svg viewBox="0 0 16 16"><path fill="currentColor" d="M13.151.922a.75.75 0 1 0-1.06 1.06L13.109 3H11.16a3.75 3.75 0 0 0-2.873 1.34l-6.173 7.356A2.25 2.25 0 0 1 .39 12.5H0V14h.391a3.75 3.75 0 0 0 2.873-1.34l6.173-7.356a2.25 2.25 0 0 1 1.724-.804h1.947l-1.017 1.018a.75.75 0 0 0 1.06 1.06L15.98 3.75 13.151.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 0 0 .39 3.5z"/><path fill="currentColor" d="m7.5 10.723.98-1.167.957 1.14a2.25 2.25 0 0 0 1.724.804h1.947l-1.017-1.018a.75.75 0 0 1 1.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 1 1-1.06-1.06L13.109 13H11.16a3.75 3.75 0 0 1-2.873-1.34l-.787-.937z"/></svg>
+        </button>
+        <button class="ctrl-btn" id="btn-prev" title="Zurück">
+          <svg viewBox="0 0 16 16"><path fill="currentColor" d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"/></svg>
+        </button>
+        <button class="ctrl-btn play-btn" id="btn-play" title="Abspielen">
+          <svg viewBox="0 0 16 16" id="play-icon"><path fill="currentColor" d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"/></svg>
+          <svg viewBox="0 0 16 16" id="pause-icon" style="display:none"><path fill="currentColor" d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"/></svg>
+        </button>
+        <button class="ctrl-btn" id="btn-next" title="Weiter">
+          <svg viewBox="0 0 16 16"><path fill="currentColor" d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"/></svg>
+        </button>
+        <button class="ctrl-btn" id="btn-repeat" title="Wiederholen">
+          <svg viewBox="0 0 16 16"><path fill="currentColor" d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75v-5z"/></svg>
+        </button>
+      </div>
+      <div class="player-progress">
+        <span class="time" id="time-current">0:00</span>
+        <div class="progress-bar" id="progress-bar">
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+            <div class="progress-handle" id="progress-handle"></div>
+          </div>
+        </div>
+        <span class="time" id="time-total">0:00</span>
+      </div>
+    </div>
+
+    <div class="player-right">
+      <button class="ctrl-btn small" id="btn-queue" title="Warteschlange">
+        <svg viewBox="0 0 16 16"><path fill="currentColor" d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5zm2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2h-9z"/></svg>
+      </button>
+      <div class="volume-control">
+        <button class="ctrl-btn small" id="btn-mute" title="Stummschalten">
+          <svg viewBox="0 0 16 16" id="vol-icon"><path fill="currentColor" d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"/><path fill="currentColor" d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"/></svg>
+        </button>
+        <div class="volume-bar" id="volume-bar">
+          <div class="progress-track">
+            <div class="progress-fill" id="volume-fill"></div>
+            <div class="progress-handle" id="volume-handle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Queue panel -->
+  <div class="queue-panel" id="queue-panel">
+    <div class="queue-header">
+      <h2>Warteschlange</h2>
+      <button class="queue-close" id="queue-close">✕</button>
+    </div>
+    <div class="queue-body" id="queue-body"></div>
+  </div>
+
+  <!-- Context menu -->
+  <div class="context-menu" id="context-menu"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <audio id="audio"></audio>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
